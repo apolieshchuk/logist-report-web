@@ -1,7 +1,39 @@
 {% extends "layout.html" %}
 
 {% block body %}
-    {% for row in rows %}
-        <li> {{ row['dr_surn'] }}</li>
-    {% endfor %}
+
+
+    <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names..">
+
+    <table border="1" id = "mytable">
+
+        <caption>База aвто</caption>
+
+{#        ФИЛЬТР ТАБЛИЦЫ#}
+
+{#        ШАПКА ТАБЛИЦЫ#}
+        <tr>
+           {% for col in head %}
+               <th> {{ col }}</th>
+           {% endfor %}
+        </tr>
+
+{#        ТЕЛО ТАБЛИЦЫ#}
+        {% for row in rows %}
+            <tr>
+            {% for col in range(row|length) %}
+                {% if col == 1 %}
+                    <th> <input type="checkbox" name="name1" /> </th>
+                {% else %}
+                    <td> {{ row[col] }}</td>
+                {% endif %}
+            {% endfor %}
+            </tr>
+        {% endfor %}
+
+
+    </table>
+
+
+
 {% endblock %}
