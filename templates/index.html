@@ -1,5 +1,7 @@
 {% extends "layout.html" %}
 
 {% block body %}
-
+    {% for row in rows %}
+        <li> {{ row['dr_surn'] }}</li>
+    {% endfor %}
 {% endblock %}
