@@ -2,34 +2,45 @@
 
 {% block body %}
 
-    <table border="1" class = "myTable">
+<div id = "left">
+    <button id="copyBut" >
+    <img id="copyButImg" src="../static/images/copy.png" alt="">
+    </button></p>
+</div>
 
-        <caption>База aвто</caption>
+<div id="right">
+    <table border="1" class = "autoTable">
+
+{#        <caption>База aвто</caption>#}
 
 {#        ФИЛЬТР ТАБЛИЦЫ#}
 
+{#        МЕНЯЕМ ШИРИНУ КОЛОНОК ТАБЛИЦЫ#}
+{% for col_size in columns_size %}
+    <col width="{{ col_size }}"/>
+{% endfor %}
+
 {#        ШАПКА ТАБЛИЦЫ#}
-        <tr>
-           {% for col in head %}
-               <th> {{ col }}</th>
-           {% endfor %}
-        </tr>
-
+<tr>
+   {% for col in head %}
+       <th> {{ col }}</th>
+   {% endfor %}
+</tr>
 {#        ТЕЛО ТАБЛИЦЫ#}
-        {% for row in records %}
-            <tr>
-            {% for col in range(row|length) %}
-                {% if col == 0 %}
-                    <th> <input type="checkbox" name="name1" /> </th>
-                {% else %}
-                    <td> {{ row[col] }}</td>
-                {% endif %}
-            {% endfor %}
-            </tr>
-        {% endfor %}
+{% for row in records %}
+    <tr>
+    {% for col in range(row|length) %}
+        {% if col == 0 %}
+            <td> <input type="checkbox" name="name1" /> </td>
+        {% else %}
+            <td> {{ row[col] }}</td>
+        {% endif %}
+    {% endfor %}
+    </tr>
+{% endfor %}
 
-
-    </table>
+</table>
+</div>
 
 
 

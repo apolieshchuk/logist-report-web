@@ -1,7 +1,7 @@
 from flask import Flask,render_template
 import mysql.connector
 
-from static import COLUMNS_AUTO
+from static import COLUMNS_AUTO, AUTO_COLUMN_WIDTH
 
 app = Flask(__name__)
 application = app 
@@ -22,7 +22,7 @@ def hello():
     s = ",".join(COLUMNS_AUTO)
     cursor.execute(f"SELECT {s} FROM auto")
     records = cursor.fetchall()
-    return render_template("index.html", records=records, head=head)
+    return render_template("index.html", records=records, head=head, columns_size = AUTO_COLUMN_WIDTH)
 
 if __name__== "__main__":
     app.run(debug=True)
