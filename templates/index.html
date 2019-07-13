@@ -2,9 +2,6 @@
 
 {% block body %}
 
-
-    <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names..">
-
     <table border="1" class = "myTable">
 
         <caption>База aвто</caption>
@@ -19,10 +16,10 @@
         </tr>
 
 {#        ТЕЛО ТАБЛИЦЫ#}
-        {% for row in rows %}
+        {% for row in records %}
             <tr>
             {% for col in range(row|length) %}
-                {% if col == 1 %}
+                {% if col == 0 %}
                     <th> <input type="checkbox" name="name1" /> </th>
                 {% else %}
                     <td> {{ row[col] }}</td>
