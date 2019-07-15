@@ -8,7 +8,8 @@ application = app
 
 
 @app.route("/")
-def hello():
+def index():
+    #91.239.232.46
     conn = mysql.connector.connect(user='aipx', password='Fleepaipx1203',
                                   host='91.239.232.46',port = 3306,
                                   database = 'aipx_logrep')
