@@ -18,11 +18,6 @@
 
         {#        ФИЛЬТР ТАБЛИЦЫ#}
 
-        {#        МЕНЯЕМ ШИРИНУ КОЛОНОК ТАБЛИЦЫ#}
-        {% for col_size in columns_size %}
-            <col width="{{ col_size }}"/>
-        {% endfor %}
-
         {#        ШАПКА ТАБЛИЦЫ#}
         <tr>
            {% for col in head %}
@@ -34,13 +29,24 @@
             <tr>
             {% for col in range(row|length) %}
                 {% if col == 0 %}
-                    <td> <input type="checkbox" name="name1" /> </td>
+                    <td>
+                        <input type=submit value="copy" style="width:100%">
+{#                        <button id="copyBut" >#}
+{#                        <img id="copyButImg" src="../static/images/copy.png" alt="">#}
+{#                        </button></p>#}
+                    </td>
                 {% else %}
                     <td> {{ row[col] }}</td>
                 {% endif %}
             {% endfor %}
             </tr>
         {% endfor %}
+
+        {#        МЕНЯЕМ ШИРИНУ КОЛОНОК ТАБЛИЦЫ#}
+        {% for col_size in columns_size %}
+            <col width="{{ col_size }}"/>
+        {% endfor %}
+
     </table>
 </div>
 
